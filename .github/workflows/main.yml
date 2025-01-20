@@ -6,7 +6,7 @@ on:
     - main
   
 jobs:
-  my-job:
+  my-some-job:
     runs-on: ubuntu-latest 
     steps:
       - name: Checkout code in GitHub action
