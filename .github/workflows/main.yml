@@ -1,7 +1,5 @@
 name: My Test Workflow
 on:
-  # schedule:
-  # - cron: "* * * * *"
   workflow_dispatch:
   
 
