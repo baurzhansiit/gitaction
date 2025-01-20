@@ -9,8 +9,8 @@ jobs:
   my-job:
     runs-on: ubuntu-latest 
     steps:
-      - name: Checkout code
+      - name: Checkout code in GitHub action
         uses: actions/checkout@v3
 
-      - name: Run a simple command
-        run: echo "build since workflows was changed"
+      - name: Run Echo commands in Logs
+        run: echo "build since workflows were changed"
