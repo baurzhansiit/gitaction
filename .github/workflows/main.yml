@@ -1,9 +1,7 @@
 name: My Test Workflow
 on:
   workflow_dispatch:
-  
-
-  
+    
 jobs:
   my-job:
     runs-on: ubuntu-latest 
