@@ -1,8 +1,9 @@
 name: My Test Workflow
 on:
   workflow_dispatch:
-  schedule:
-  - cron: "* * * * *"
+  push:
+    branches:
+    - main
   
 jobs:
   my-job:
