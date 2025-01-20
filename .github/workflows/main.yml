@@ -2,7 +2,10 @@ name: My Test Workflow
 
 # on:
 #   workflow_dispatch:
-
+on:
+  schedule:
+  - cron: "* * * * *"
+  
 jobs:
   my-job:
     runs-on: ubuntu-latest 
