@@ -1,0 +1,32 @@
+name: Ansible Tower Job Success
+
+on:
+  repository_dispatch:
+    types: [ansible_tower_success]
+  workflow_dispatch: 
+
+jobs:
+  run_on_success:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify Webhook Token (Optional but Recommended)
+        env:
+          WEBHOOK_SECRET: ${{ secrets.ANSIBLE_TOWER_WEBHOOK_SECRET }}
+        run: |
+          if [[ "${{ github.event.inputs.webhook_token }}" != "$WEBHOOK_SECRET" ]]; then
+            echo "Error: Invalid webhook token!"
+            exit 1
+          fi
+          echo "Webhook token verified."
+
+      - name: Print Hello World (Example Action)
+        run: echo "Hello, world! Ansible Tower job succeeded!"
+
+      - name: Example of accessing Ansible Tower payload
+        run: |
+          echo "Ansible Tower Job ID: ${{ github.event.inputs.job_id }}"
+          echo "Ansible Tower Job Name: ${{ github.event.inputs.job_name }}"
