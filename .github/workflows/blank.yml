@@ -24,7 +24,10 @@ jobs:
           echo "Webhook token verified."
 
       - name: Print Hello World (Example Action)
-        run: echo "Hello, world! Ansible Tower job succeeded!"
+        run: |
+          echo "Received event payload:"
+          echo "${{ github.event.client_payload }}"
+          echo "Hello, world! Ansible Tower job succeeded!"
 
       - name: Example of accessing Ansible Tower payload
         run: |
