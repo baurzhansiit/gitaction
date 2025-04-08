@@ -14,22 +14,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Verify Webhook Token (Optional but Recommended)
-        env:
-          WEBHOOK_SECRET: ${{ secrets.ANSIBLEWEBHOOK }}
-        run: |
-          if [[ "${{ github.event.inputs.webhook_token }}" != "$WEBHOOK_SECRET" ]]; then
-            echo "Error: Invalid webhook token!"
-            exit 1
-          fi
-          echo "Webhook token verified."
+        run: curl https://aap.genmills.com/api/v2/
 
       - name: Print Hello World (Example Action)
         run: |
           echo "Received event payload:"
           echo "${{ github.event.client_payload }}"
           echo "Hello, world! Ansible Tower job succeeded!"
-
-      - name: Example of accessing Ansible Tower payload
-        run: |
-          echo "Ansible Tower Job ID: ${{ github.event.inputs.job_id }}"
-          echo "Ansible Tower Job Name: ${{ github.event.inputs.job_name }}"
