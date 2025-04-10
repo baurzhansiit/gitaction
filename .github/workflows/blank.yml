@@ -1,8 +1,8 @@
-name: Ansible Tower Job Success
+name: Ansible Tower Job Success /feature
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "feature/workflow" ]
   repository_dispatch:
     types: [ansible_tower_success]
   workflow_dispatch: 
