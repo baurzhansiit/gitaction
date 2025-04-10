@@ -1,6 +1,8 @@
 name: Ansible Tower Job Success
 
 on:
+  push:
+    branches: [ "main" ]
   repository_dispatch:
     types: [ansible_tower_success]
   workflow_dispatch: 
