@@ -2,7 +2,9 @@ name: Ansible Tower Job Success
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+    - "main"
+    - "feature/workflow"
   workflow_dispatch: 
 
 jobs:
